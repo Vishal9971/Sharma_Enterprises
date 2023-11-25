@@ -1,0 +1,66 @@
+<%- include('./partials/header') %> <%- include('./partials/navbar') %>
+
+<div class="selfForm">
+  <form action="/products/<%= foundProduct._id %>?_method=PATCH" method="POST" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="naam" class="form-label">Name : </label>
+      <input
+        type="text"
+        class="form-control"
+        id="naam"
+        name="name"
+        aria-describedby="emailHelp"
+        value="<%= foundProduct.name%>"
+        required />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please choose a name.</div>
+    </div>
+    <div class="mb-3">
+      <label for="img" class="form-label">Image URL :</label>
+      <textarea rows="5" cols="10" type="text" class="form-control" id="img" name="img" value="" required>
+<%= foundProduct.img%></textarea
+      >
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please choose a Image URL.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description :</label>
+      <input type="text" class="form-control" id="desc" name="des" value="<%= foundProduct.des%>" />
+    </div>
+    <div class="mb-3">
+      <label for="paisa" class="form-label">price :</label>
+      <input type="text" class="form-control" id="paisa" name="price" value="<%= foundProduct.price%>" required />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please give Product Price.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<script>
+  (() => {
+    'use strict';
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation');
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        'submit',
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add('was-validated');
+        },
+        false
+      );
+    });
+  })();
+</script>
+
+<%- include('./partials/footer') %>

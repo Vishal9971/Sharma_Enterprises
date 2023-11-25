@@ -1,0 +1,47 @@
+<%- include('../product/partials/header') %> <%- include('../product/partials/navbar') %>
+<div class="d-flex mx-5 justify-content-between">
+  <ul>
+    <%for(let item of user.cart){%>
+    <li>
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="<%=item.img%>" class="img-fluid rounded-start" alt="..." />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title"><%= item.name %></h2>
+              <p class="card-text"><%= item.des %></p>
+              <h4 class="card-text"><small class="text-body-secondary">RS. <%= item.price %></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <%}%>
+  </ul>
+  <div class="my-5 border border-2 border-black">
+    <h2 class="text-center my-4">Bill Amount</h2>
+    <%for(let item of user.cart){%>
+      <div class="my-3 mx-5 d-flex justify-content-between selfBill">
+        <h5><%= item.name %></h5>
+        <h5 class=""><%= item.price %></h5>
+      </div>
+    <%}%>
+    <div class="m-5 d-flex justify-content-between">
+      <h5> Total Amount =</h5>
+      <h5><%= totalAmount %></h5>
+    </div>
+    <form class="d-flex mx-5 justify-content-end " action="payment_gateway/payumoney" method="POST">
+      <input class="amount" type="hidden" name="amount" value="<%= totalAmount %>"/>
+      <input class="con" type="hidden" name="phone" value="+91-9999999999" />
+      <input type="hidden" name="service_provider"
+      value="payu_paisa"/>
+      <input type="hidden" class="product" name="productinfo"
+      value="<%=productInfo %>"/>
+
+      <button type="submit" class="btn btn-sm btn-success my-3" >Checkout</button>
+    </form>
+  </div>
+</div>
+<%- include('../product/partials/footer') %>

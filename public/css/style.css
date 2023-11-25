@@ -1,0 +1,51 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.navvy {
+  height: 10vh;
+}
+.selfCarousel {
+  height: 80vh;
+  display: flex;
+}
+.selfCarousel img {
+  height: 80vh;
+}
+.selfCard {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.show {
+  height: 60vh;
+  width: 80vw;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.selfForm {
+  width: 30vw;
+  margin: 40px auto;
+  text-align: center;
+}
+.colorFont {
+  color: black;
+  font-size: 20px;
+}
+#selfImg {
+  height: 300px !important;
+  width: 100% !important;
+}
+.selfForm {
+  width: 30%;
+}
+.selfReview {
+  width: 30%;
+  transform: translate(120%, 50%);
+}
+.selfBill {
+  width: 500px;
+}

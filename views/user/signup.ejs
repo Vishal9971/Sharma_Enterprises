@@ -1,0 +1,31 @@
+<%- include('../product/partials/header') %> <%- include('../product/partials/navbar') %>
+<form action="/register" method="post" class="selfForm">
+  <!-- Username input -->
+  <h3 class="text-center">SIGN UP</h3>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="registerUsername">Username</label>
+    <input type="text" id="registerUsername" name="username" class="form-control" />
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="registerEmail">Email</label>
+    <input type="email" id="registerEmail" name="email" class="form-control" />
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="registerPassword">Password</label>
+    <input type="password" id="registerPassword" name="password" class="form-control" />
+  </div>
+
+  <!-- button of role -->
+  <div class="form-outline mb-4">
+    <label class="form-label"  for="seller">Seller</label>
+    <input class="form-check-input" value="seller" type="radio"  name="role" id="seller">
+  </div>
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+</form>
+
+<%-include('../product/partials/footer') %>
